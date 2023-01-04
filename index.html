@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <style>
+      /* Add some style to the puzzle game */
+      .puzzle-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        height: 300px;
+      }
+      .puzzle-piece {
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Create a container for the puzzle pieces -->
+    <div class="puzzle-container">
+      <!-- Add the puzzle pieces -->
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+      <div class="puzzle-piece"></div>
+    </div>
+    <script>
+      // Get the puzzle container element
+      const puzzleContainer = document.querySelector('.puzzle-container');
+      // Get all the puzzle pieces
+      const puzzlePieces = document.querySelectorAll('.puzzle-piece');
+      // Add a click event listener to each puzzle piece
+      puzzlePieces.forEach(piece => {
+        piece.addEventListener('click', movePiece);
+      });
+      // Function to move a puzzle piece
+      function movePiece(e) {
+        // Get the element that was clicked
+        const clickedPiece = e.target;
+        // Get the empty puzzle piece (assume there is only one)
+        const emptyPiece = document.querySelector('.empty');
+        // Swap the empty piece with the clicked piece
+        puzzleContainer.insertBefore(clickedPiece, emptyPiece);
+      }
+    </script>
+  </body>
+</html>
